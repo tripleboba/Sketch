@@ -20,3 +20,17 @@ const pigLatin = input => {
 
 // display output as a string
 console.log(`-> ${pigLatin(input).join(' ')}\n----`);
+
+// -- OTHER SOLUTION --
+let originalWords = process.argv.slice(2);
+let pigLatinWords = [];
+
+for (let i = 1; i < originalWords.length; i++) {
+  pigLatinWords.push(translateToPigLatin(originalWords[i]));
+}
+
+console.log(pigLatinWords.join(' '));
+
+function translateToPigLatin(word) {
+  return word.slice(2, word.length) + word[0] + "ay";
+}
